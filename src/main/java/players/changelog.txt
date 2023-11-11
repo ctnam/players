@@ -1,0 +1,7 @@
+v1.0: Lite version
+v1.1: - Added feature send to multi-recipients
+      - Added class Message  
+      - Minor modification to sub-processes
+v1.2: - Send to unduplicated recipients   
+v1.3: - Bug fixes
+      - Improvement in sub-processes
