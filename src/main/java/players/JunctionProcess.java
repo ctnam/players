@@ -1,6 +1,6 @@
 /**
  * DOC
- * method run corresponds to the task of 2 players communicating with each other - initiator1 identifies the recipient then sending the message, while receiver1 replies
+ * method run corresponds to the task of players communicating with each other - initiator1 identifies the recipients then sending the message, while receiver(s) may reply or not
  */
 
 package players;
@@ -20,7 +20,7 @@ public class JunctionProcess {
         executor.submit(new Runnable () {
             @Override
             public void run() {
-                playerList.stream().filter(p -> p.getReplyMode()==true).forEach(System.out::println);
+                playerList.stream().filter(p -> p.getReplyMode()==true).forEach(System.out::println);  // players who reply
                 //2. one of the players should send a message to second player (let's call this player "initiator")
                 playerList.get(0).initiateToRecipient(playerList.get(1))
                                         .addRecipient(playerList.get(2))

@@ -1,3 +1,9 @@
+/**
+ * DOC
+ * Builder design pattern
+ * To compose a message, title and contents are mandatory, while signature is optional
+ */
+
 package players;
 
 public class Message {

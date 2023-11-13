@@ -30,7 +30,7 @@ public class SeparateProcess {
             @Override
             public void run() {
                 initiator2.initiateToRecipient(receiver2)
-                                .send(new Message.Compose("Hallo ", LocalDateTime.now().toString()).finish());
+                                .send(new Message.Compose("Hi ", LocalDateTime.now().toString()).finish());
             }
         });
         executor.close();

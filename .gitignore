@@ -18,3 +18,5 @@ target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.l
 target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
 target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
 target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+target/players-1.3f.jar
+target/classes/players/Message$1.class

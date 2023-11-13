@@ -29,13 +29,14 @@ class Player implements Initiator<Player>, Messagable {
     public static Player newInstance (final String name) {return new Player(name);}
     public static List<Player> newInstances (final String... names) {return Stream.of(names).map(Player::newInstance).toList();}
 
+    // one player may reply or not
     {replyMode = ThreadLocalRandom.current().nextBoolean();}
     public boolean getReplyMode () {return replyMode;}
 
     @Override
     public Player initiateToRecipient (Player recipient) {
         this.recipient = recipient;
-        if (!recipient.equals(this)) {recipienList.add(recipient);}
+        if (!recipient.equals(this)) {recipienList.add(recipient);}  //send unduplicated multi-recipients 
         recipient.sender = this;        
         initiator = this;
         return this;
@@ -43,12 +44,11 @@ class Player implements Initiator<Player>, Messagable {
 
     protected Player addRecipient (Player recipient) {
         this.recipient = recipient;
-        if (!recipient.equals(this)) {recipienList.add(recipient);}
+        if (!recipient.equals(this)) {recipienList.add(recipient);}  //send unduplicated multi-recipients 
         recipient.sender = this;        
         return this;
     }
 
-    //2. one of the players should send a message to second player (let's call this player "initiator")
     @Override
     synchronized public void send (Message sendMessage) {
         //4. finalize the program (gracefully) after the initiator sent 10 messages and received back 10 messages (stop condition)
@@ -61,6 +61,7 @@ class Player implements Initiator<Player>, Messagable {
         }
     }
 
+    //2. one of the players should send a message to second player (let's call this player "initiator")
     protected void send (Message sendMessage, Player recipient) {
                     System.out.println("SEND v2");
                     this.sendMessage = sendMessage;   

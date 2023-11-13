@@ -1,3 +1,8 @@
+/**
+ * DOC
+ * inheritance
+ */
+
 package players;
 
 public class Children extends Player {
